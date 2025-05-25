@@ -1,108 +1,98 @@
 <!-- frontend/index.html -->
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ATENA Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
-</head>
-<body>
-  <header>
-    <button
-      class="menu-toggle"
-      aria-label="Toggle menu"
-      onclick="toggleMenu()"
-      type="button"
-    >
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
-    <nav id="menu" class="hidden" aria-label="Primary navigation">
-      <ul>
-        <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
-        <li><a href="#" onclick="showPage('mapPage')">Hartă</a></li>
-        <li><a href="#" onclick="showPage('about')">Despre</a></li>
-      </ul>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ATENA Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+  <body>
+    <header>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
+      <nav id="menu" class="hidden" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+          <li><a href="#" onclick="showPage('mapPage')">Hartă</a></li>
+          <li><a href="#" onclick="showPage('about')">Despre</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main>
-    <section id="dashboard" class="page">
-      <h1 class="dashboard-title">ATENA Dashboard</h1>
-      <div class="dashboard-container">
-        <aside id="status-column" aria-live="polite">
-          <div id="info" aria-atomic="true"></div>
-          <div id="battery-container">
-            <label for="battery-bar">Baterie:</label>
-            <progress id="battery-bar" value="0" max="100"></progress>
-            <span id="battery-percent">0%</span>
-          </div>
-          <div>
-            <strong>Ultima actualizare:</strong>
-            <span id="last-update">--:--:--</span>
-          </div>
-          <div>
-            <strong>Țintă curentă:</strong>
-            <span id="target-coords">N/A</span>
-          </div>
-          <button id="refreshBtn" type="button">Actualizează acum</button>
-        </aside>
+    <main>
+      <section id="dashboard" class="page">
+        <h1 class="dashboard-title">ATENA Dashboard</h1>
+        <div class="dashboard-container">
+          <aside id="status-column" aria-live="polite">
+            <div id="info" aria-atomic="true"></div>
+            <div id="battery-container">
+              <label for="battery-bar">Baterie:</label>
+              <progress id="battery-bar" value="0" max="100"></progress>
+              <span id="battery-percent">0%</span>
+            </div>
+            <div>
+              <strong>Ultima actualizare:</strong>
+              <span id="last-update">--:--:--</span>
+            </div>
+            <div>
+              <strong>Țintă curentă:</strong>
+              <span id="target-coords">N/A</span>
+            </div>
+            <button id="refreshBtn" type="button">Actualizează acum</button>
+          </aside>
 
-        <section id="log-column">
-          <div id="log">
-            <strong>Log evenimente:</strong><br />
-            <label>
-              <input type="checkbox" id="toggleCoords" checked />
-              Afișează actualizări coordonate
-            </label>
-            <div
-              id="event-log"
-              style="height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; font-family: monospace; font-size: 14px; margin-top: 5px;"
-              aria-live="polite"
-            ></div>
-          </div>
-          <div id="info-text">
-            <strong>Info:</strong> Folosește harta pentru a seta ținta robotului.
-            Robotul urmărește și găsește drumul cel mai rapid către persoana
-            blocată.
-          </div>
-        </section>
-      </div>
-    </section>
+          <section id="log-column">
+            <div id="log">
+              <strong>Log evenimente:</strong><br />
+              <label>
+                <input type="checkbox" id="toggleCoords" checked />
+                Afișează actualizări coordonate
+              </label>
+              <div
+                id="event-log"
+                style="height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; font-family: monospace; font-size: 14px; margin-top: 5px;"
+                aria-live="polite"
+              ></div>
+            </div>
+            <div id="info-text">
+              <strong>Info:</strong> Folosește harta pentru a seta ținta robotului. Robotul urmărește și găsește drumul cel mai rapid către persoana blocată.
+            </div>
+          </section>
+        </div>
+      </section>
 
-    <section id="mapPage" class="page" style="display: none;">
-      <h1>Hartă Robot</h1>
-      <div id="map" style="height: 400px;"></div>
-      <button id="sendTarget" type="button">Trimite robotul aici</button>
-    </section>
+      <section id="mapPage" class="page" style="display: none;">
+        <h1>Hartă Robot</h1>
+        <div id="map"></div>
+        <button id="sendTarget" type="button">Trimite robotul aici</button>
+      </section>
 
-    <section id="about" class="page" style="display: none;">
-      <h1>Despre proiect</h1>
-      <p>
-        ATENA este un robot autonom pentru căutarea și salvarea persoanelor
-        blocate în peșteri.
-      </p>
-    </section>
-  </main>
+      <section id="about" class="page" style="display: none;">
+        <h1>Despre proiect</h1>
+        <p>
+          ATENA este un robot autonom pentru căutarea și salvarea persoanelor
+          blocate în peșteri.
+        </p>
+      </section>
+    </main>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach((page) => (page.style.display = 'none'));
-      document.getElementById(id).style.display = 'block';
-      document.getElementById('menu').classList.add('hidden');
-    }
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      function showPage(id) {
+        document.querySelectorAll('.page').forEach((page) => (page.style.display = 'none'));
+        document.getElementById(id).style.display = 'block';
+        document.getElementById('menu').classList.add('hidden');
+      }
 
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('hidden');
-    }
-  </script>
-  <script src="script.js"></script>
-</body>
+      function toggleMenu() {
+        document.getElementById('menu').classList.toggle('hidden');
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
