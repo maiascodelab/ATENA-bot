@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Peștera Gal de Prospectiune",
+    "location": "Munții Făgăraș, România",
+    "image_path": "images/pestera_gal_de_prospectiune.jpg",
+    "coordinates": {
+      "latitude": 45.6000,
+      "longitude": 24.7000
+    }
+  },
+  {
+    "name": "Peștera Gura Ponicovei",
+    "location": "Dubova, Mehedinți, România",
+    "image_path": "images/pestera_gura_ponicovei.jpg",
+    "coordinates": {
+      "latitude": 44.59605,
+      "longitude": 22.25501
+    }
+  },
+  {
+    "name": "Peștera Meziad",
+    "location": "Meziad, Bihor, România",
+    "image_path": "images/pestera_meziad.jpg",
+    "coordinates": {
+      "latitude": 46.74083,
+      "longitude": 22.42833
+    }
+  },
+  {
+    "name": "Peștera Poarta lui Ionele",
+    "location": "Gârda de Sus, Alba, România",
+    "image_path": "images/pestera_poarta_lui_ionele.jpg",
+    "coordinates": {
+      "latitude": 46.46629,
+      "longitude": 22.83687
+    }
+  },
+  {
+    "name": "Peștera Șaua Mare",
+    "location": "Munții Făgăraș, România",
+    "image_path": "images/pestera_saua_mare.jpg",
+    "coordinates": {
+      "latitude": 45.6000,
+      "longitude": 24.7000
+    }
+  },
+  {
+    "name": "Peștera Șugău",
+    "location": "Suseni, Harghita, România",
+    "image_path": "images/pestera_sugau.jpg",
+    "coordinates": {
+      "latitude": 46.68250,
+      "longitude": 25.67361
+    }
+  },
+  {
+    "name": "Peștera Topolnița",
+    "location": "Mehedinți, România",
+    "image_path": "images/pestera_topolnita.jpg",
+    "coordinates": {
+      "latitude": 44.866667,
+      "longitude": 22.6
+    }
+  },
+  {
+    "name": "Peștera Urșilor",
+    "location": "Chișcău, Bihor, România",
+    "image_path": "images/pestera_ursilor.jpg",
+    "coordinates": {
+      "latitude": 46.553915,
+      "longitude": 22.569324
+    }
+  }
+]
